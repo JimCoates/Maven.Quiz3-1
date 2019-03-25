@@ -32,6 +32,7 @@ public class StartsWithVowel {
         Assert.assertTrue(VowelUtils.startsWithVowel(input));
     }
 
+
     public void test4() {
         String input = "Optical";
         Assert.assertTrue(VowelUtils.startsWithVowel(input));

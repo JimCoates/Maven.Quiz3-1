@@ -1,6 +1,13 @@
 package rocks.zipcode.io.quiz3.generics;
 
+import com.sun.javafx.iio.common.SmoothMinifier;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * @author leon on 09/12/2018.
@@ -13,18 +20,33 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType findOddOccurringValue() {
-        return null;
+        SomeType answer = null;
+
+        for (SomeType element : array) {
+            if (getNumberOfOccurrences(element) % 2 != 0) {
+                answer = element;
+            }
+        }
+        return answer;
     }
 
     public SomeType findEvenOccurringValue() {
-        return null;
+        SomeType answer = null;
+
+        for (SomeType element: array){
+            if (getNumberOfOccurrences(element) % 2 == 0){
+                answer = element;
+            }
+        }
+        return answer;
     }
 
     public Integer getNumberOfOccurrences(SomeType valueToEvaluate) {
-        return null;
+        ArrayList<SomeType> temp = new ArrayList<>(Arrays.asList(array));
+        return Collections.frequency(temp, valueToEvaluate);
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-        return null;
+       return null;
     }
 }
