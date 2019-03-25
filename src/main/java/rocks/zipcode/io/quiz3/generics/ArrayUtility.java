@@ -47,6 +47,8 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-       return null;
+       Object [] temp = Stream.of(array).map(predicate).toArray();
+       SomeType[] answer = (SomeType[]) temp;
+       return answer;
     }
 }

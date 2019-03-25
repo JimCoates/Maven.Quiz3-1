@@ -7,6 +7,7 @@ public class PigLatinGenerator {
     public String translate(String str) {
         StringBuilder builder = new StringBuilder(str);
 
+
         if(VowelUtils.startsWithVowel(str)){
             return addWayToEnd(str);
         } else if(!VowelUtils.hasVowels(str)) {
