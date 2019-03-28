@@ -6,7 +6,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -47,8 +49,7 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-       Object [] temp = Stream.of(array).map(predicate).toArray();
-       SomeType[] answer = (SomeType[]) temp;
-       return answer;
+       List<SomeType> temp = Stream.of(array).filter(value-> predicate.apply(value)).collect(Collectors.toList());
+       return temp.toArray((SomeType[]) Array.newInstance(array[0].getClass(), temp.size()));
     }
 }

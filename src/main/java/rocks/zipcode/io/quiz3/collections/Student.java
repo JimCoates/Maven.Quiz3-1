@@ -29,19 +29,13 @@ public class Student {
         return null;
     }
 
-    public void setLabStatus(String labName, LabStatus labStatus) throws UnsupportedOperationException {
-        try {
-            for (Lab lab : labs) {
-                if (lab.getName().equals(labName)) {
-                    lab.setStatus(labStatus);
-                } else {
+    public void setLabStatus(String labName, LabStatus labStatus) {
+                if(getLab(labName)== null){
                     throw new UnsupportedOperationException();
+                } else if (getLab(labName).getName().equals(labName)) {
+                    getLab(labName).setStatus(labStatus);
                 }
             }
-        } catch (Exception ex) {
-            System.out.println("error");
-        }
-    }
 
     public void forkLab(Lab lab) {
         lab.setStatus(LabStatus.PENDING);

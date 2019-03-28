@@ -1,23 +1,33 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author leon on 09/12/2018.
  */
 public class PigLatinGenerator {
-    public String translate(String str) {
-        StringBuilder builder = new StringBuilder(str);
+    public String translate(String strng) {
+        StringBuilder builder = new StringBuilder();
+        ArrayList<String> temp = new ArrayList<>(Arrays.asList(strng.split(" ")));
+        for (String str: temp) {
 
-
-        if(VowelUtils.startsWithVowel(str)){
-            return addWayToEnd(str);
-        } else if(!VowelUtils.hasVowels(str)) {
-            return addAYToEnd(str);
-        } else if (!VowelUtils.startsWithVowel(str)){
-            str = shiftUntilConsonantIsFirst(str);
-            return addAYToEnd(str);
-        } else {
-            return str;
+            if (VowelUtils.startsWithVowel(str)) {
+                str=addWayToEnd(str);
+                builder.append(str + " ");
+            } else if (!VowelUtils.hasVowels(str)) {
+                str=addAYToEnd(str);
+                builder.append(str + " ");
+            } else if (!VowelUtils.startsWithVowel(str)) {
+                str = shiftUntilConsonantIsFirst(str);
+                str=addAYToEnd(str);
+                builder.append((str) + " ");
+            } else {
+                return str;
+            }
         }
+        builder.deleteCharAt(builder.length()-1);
+        return builder.toString();
     }
 
     public String shiftOnePosition(String input) {

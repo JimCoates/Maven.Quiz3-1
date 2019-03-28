@@ -11,7 +11,8 @@ public class VowelUtils {
 
     public static Boolean hasVowels(String word) {
 
-        if (word.contains("a") || word.contains("e") || word.contains("i") || word.contains("u") || word.contains("o")) {
+        if (word.contains("a") || word.contains("e") || word.contains("i") || word.contains("u") || word.contains("o") ||
+        word.contains("A") || word.contains("E") || word.contains("I") || word.contains("U") || word.contains("O")) {
             return true;
         }
         return false;

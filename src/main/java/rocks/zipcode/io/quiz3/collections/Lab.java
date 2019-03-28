@@ -7,6 +7,7 @@ public class Lab {
     String name;
     LabStatus status;
 
+
     public Lab() {
         this(null);
     }
